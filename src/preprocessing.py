@@ -25,7 +25,7 @@ def threshold_mask_from_ndvi(ndvi, thresh=0.05):
     Return binary mask (255 = vegetation, 0 = background).
     This detects ALL vegetation (crops + weeds).
     """
-    mask = (ndvi > thresh).astype('uint8') * 255
+    mask = (ndvi < thresh).astype('uint8') * 255
     return mask
 
 def detect_weeds_by_row_crops(img_bgr, row_spacing=50, row_tolerance=15):
